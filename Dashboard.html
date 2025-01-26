@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LWUA Boei</title>
+    <link rel="stylesheet" href="CSS/Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="dashboardApp">
+        <header>
+            <h1>Water kwaliteit - Boei {{ buoyName }}</h1>
+            <button @click="goBack" class="back-button">← Terug naar selectie</button>
+            <button @click="Logout" class="logout-button">← Terug naar Login</button>
+        </header>
+        
+        <div class="dashboard">
+            <div class="sensor-container">
+                <a href="Charts/Temperatuur.html" class="sensor-link">
+                    <div class="sensor-box temperature">
+                        <h2>Temperatuur</h2>
+                        <p class="value">{{ temperature }} °C</p>
+                        <p class="timestamp">{{ timestamps.temperature }}</p>
+                    </div>
+                </a>
+
+                <a href="Charts/Troebel.html" class="sensor-link">
+                 <div class="sensor-box turbidity">
+                    <h2>Troebelheid (Lichtweerstand)</h2>
+                    <p class="value">{{ turbidity }} V</p>
+                    <p class="timestamp">{{ timestamps.turbidity }}</p>
+                </div>
+                </a>
+
+                <a href="Charts/EGV.html" class="sensor-link">
+                <div class="sensor-box conductivity">
+                    <h2>EGV (geleidbaarheid) </h2>
+                    <p class="value">{{ conductivity }} ms/cm</p>
+                    <p class="timestamp">{{ timestamps.conductivity }}</p>
+                </div>
+                </a>
+
+                <a href="Charts/Zuurstof.html" class="sensor-link">
+                    <div class="sensor-box oxygen">
+                    <h2>Zuurstof</h2>
+                    <p class="value">{{ oxygen }} mg/L</p>
+                    <p class="timestamp">{{ timestamps.oxygen }}</p>
+                </div>
+                </a>
+
+                <a href="Charts/PH.html" class="sensor-link">
+                    <div class="sensor-box ph">
+                    <h2>pH waarde</h2>
+                    <p class="value">{{ ph }}</p>
+                    <p class="timestamp">{{ timestamps.ph }}</p>
+                </div>
+                </a>
+
+                <a href="Charts/Batterij.html" class="sensor-link">
+                <div class="sensor-box battery">
+                    <h2>Batterijstatus</h2>
+                    <p class="value">{{ battery }} V</p>
+                    <p class="timestamp">{{ timestamps.battery }}</p>
+                </div>
+                </a>
+            </div>
+                <div class="sensor-box gps">
+                    <h2>GPS Data</h2>
+                    <p class="value">Coordinaten</p>
+                    <p class="timestamp">{{ timestamps.battery }}</p>
+                </div>
+            </div>
+            
+            <div class="refresh-container">
+                <button @click="refreshData" class="refresh-button">
+                    Ververs data
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="JS/Javascript.js"></script>
+</body>
+</html>
